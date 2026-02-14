@@ -1,21 +1,16 @@
-class Calculator:
+from comfy_api.latest import io
+
+class Calculator(io.ComfyNode):
     @classmethod
-    def INPUT_TYPES(s):
-        return {
-            "required": {},
-        }
+    def define_schema(cls) -> io.Schema:
+        return io.Schema(
+            node_id="Calculator",
+            display_name="Calculator 🧮",
+            category="Calculator 🧮",
+            inputs=[],
+            outputs=[]
+        )
 
-    RETURN_TYPES = ()
-    FUNCTION = "Calculator"
-    CATEGORY = "Calculator 🧮"
-
-    def Calculator(self):
-        return ()
-
-NODE_CLASS_MAPPINGS = {
-    "Calculator": Calculator
-}
-
-NODE_DISPLAY_NAME_MAPPINGS = {
-    "Calculator": "Calculator 🧮"
-}
+    @classmethod
+    def execute(cls) -> io.NodeOutput:
+        return io.NodeOutput()
